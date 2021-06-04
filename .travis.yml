@@ -7,6 +7,13 @@ php:
 
 before_install:
   - php -v
-  - compoer --version
+  # Add Composer config.json for Artifactory
+  - cp .travis/config.json $HOME/.composer/
+  # Add Composer auth for Artifactory
+  - composer config --global http-basic.padi.jfrog.io $JFROG_BUILD_USERNAME $JFROG_BUILD_KEY
+  - composer validate --no-check-all --ansi
+  - composer install --prefer-dist
+  - chmod -v 600 services/oauth/public.key
+  - composer --version
 
 script: true
