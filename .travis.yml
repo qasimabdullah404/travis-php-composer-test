@@ -1,0 +1,12 @@
+os: linux
+dist: xenial
+language: php
+
+php:
+- 7.4
+
+before_install:
+  - php -v
+  - compoer --version
+
+script: true
