@@ -4,6 +4,8 @@ language: php
 
 php:
 - 7.4
+install:
+  - composer self-update 2.0.14
 
 script:
   - php -v
