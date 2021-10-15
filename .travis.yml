@@ -1,11 +1,35 @@
-os: linux
-dist: focal
-language: php
-php:
-  - 7.4
-services: mysql
+jobs:
+  include:
+    - os: linux
+      dist: focal
+      language: php
+      php:
+        - 7.4
+      services: mysql
 
-script:
-  - php -v
-  - cat /etc/hosts
-  - ping -c 3 localhost
+      script:
+        - php -v
+        - cat /etc/hosts
+        - ping -c 3 localhost
+    - os: linux
+      dist: bionic
+      language: php
+      php:
+        - 7.4
+      services: mysql
+
+      script:
+        - php -v
+        - cat /etc/hosts
+        - ping -c 3 localhost
+    - os: linux
+      dist: xenial
+      language: php
+      php:
+        - 7.4
+      services: mysql
+
+      script:
+        - php -v
+        - cat /etc/hosts
+        - ping -c 3 localhost
