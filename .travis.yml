@@ -1,12 +1,11 @@
 os: linux
-dist: xenial
+dist: focal
 language: php
-
 php:
-- 7.4
-install:
-  - composer self-update 2.0.14
+  - 7.4
+services: mysql
 
 script:
   - php -v
-  - composer --version
+  - cat /etc/hosts
+  - ping -c 3 localhost
